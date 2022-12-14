@@ -113,14 +113,18 @@ vector<Aresta> kruskal(int n, vector<Aresta> &arestas, int &custo) {
 
     //primeiro, ordenar as arestas por peso
     sort(arestas.begin(), arestas.end());
+
     //depois, ir escolhendo, se u e v não estao no mesmo set
     for(Aresta e : arestas) {
+        //perceba que serão escolhidas exatamente n - 1 arestas
+        //depois, esse if abaixo não se cumprirá
         if(find_set(e.u, pai, rank) != find_set(e.v, pai, rank)) {
             //escolha essa aresta:
             tree.push_back(e);
             union_sets(e.u, e.v, pai, rank);
             custo += e.peso;
         }
+        if(tree.size() == n - 1) break;
     }
     return tree;
 }
@@ -133,9 +137,8 @@ vector<Aresta> ler_arestas(string caminho_arquivo, int &n) {
     
     for(int i = 0; i < m; i++) {
         int u, v, peso; arquivo >> u >> v >> peso;
-        u--, v--;
-        arestas[i].u = u;
-        arestas[i].v = v;
+        arestas[i].u = u - 1;
+        arestas[i].v = v - 1;
         arestas[i].peso = peso;
     }
     return arestas;

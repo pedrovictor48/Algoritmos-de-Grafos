@@ -16,7 +16,7 @@ string IN, OUT;
 void flags_terminal(int argc, char ** argv) {
     HELP = SOL = false;
     IN = "grafo.txt";
-    OUT = "out.txt";
+    OUT = "";
 
     for(int i = 1; i < argc; i++) {
         //se o primeiro caractere é zero, ent é uma flag
@@ -78,8 +78,6 @@ void solucao(vector<int> &path, vector<int> &peso) {
         else cout << "nao existe" << endl;
     }
 }
-
-
 
 void dijkstra(int origem, vector<vector<pair<int, int>>> &lista_adjacencia, vector<int> &peso, vector<int> &path) {
     int n = lista_adjacencia.size(); // numero de vertices, nós com rótulos 0-indexed

@@ -16,7 +16,7 @@ string IN, OUT;
 void flags_terminal(int argc, char ** argv) {
     HELP = SOL = false;
     IN = "grafo.txt";
-    OUT = "out.txt";
+    OUT = "";
 
     for(int i = 1; i < argc; i++) {
         //se o primeiro caractere é zero, ent é uma flag
@@ -45,11 +45,6 @@ void flags_terminal(int argc, char ** argv) {
         //se nao, é um valor para a flag i-1 que ja foi processado
     }
 }
-
-struct Aresta {
-    int u, v, peso;
-    // com operador de menor para ser ordenavel:
-};
 
 void help() {
     cout << "-h : mostra o help\n";
@@ -84,15 +79,20 @@ void solucao(vector<int> &path, vector<int> &peso) {
     }
 }
 
-
+struct Aresta {
+    int u, v, peso;
+    // com operador de menor para ser ordenavel:
+};
 
 void bellman(int origem, int n, vector<Aresta> &arestas, vector<int> &peso, vector<int> &path) {
     peso = vector<int>(n, INF);
+    path = vector<int>(n, -1);
     peso[origem] = 0;
+    path[origem] = origem;
     for(int i = 0; i < n - 1; i++) {
         for(Aresta e : arestas) {
             if(peso[e.u] < INF) {
-                if(peso[e.v] < peso[e.u] + e.peso) {
+                if(peso[e.v] > peso[e.u] + e.peso) {
                     peso[e.v] = peso[e.u] + e.peso;
                     path[e.v] = e.u;
                 }
