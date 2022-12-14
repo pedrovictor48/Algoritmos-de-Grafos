@@ -17,6 +17,7 @@ void flags_terminal(int argc, char ** argv) {
     HELP = SOL = false;
     IN = "grafo.txt";
     OUT = "";
+    LAST = -1;
 
     for(int i = 1; i < argc; i++) {
         //se o primeiro caractere é zero, ent é uma flag
@@ -53,7 +54,7 @@ void help() {
     cout << "-s : mostra a solução (em ordem crescente)\n";
     cout << "-i : vértice inicial (dependendo do algoritmo)\n";
     cout << "-l : vértice final (dependendo do algoritmo)\n";
-    cout << "os valores padrões são 0 para o vértice inicial e final, grafo.txt para o grafo de entrada e saída no terminal\n";
+    cout << "os valores padrões são 0 para o vértice inicial, grafo.txt para o grafo de entrada e saída no terminal\n";
 }
 
 void print_path(int u, vector<int> &path) {
@@ -139,7 +140,14 @@ int main(int argc, char ** argv) {
 
     dijkstra(START - 1, adj, peso, path);
 
-    cout << peso[LAST - 1] << endl;
+    if(LAST == -1) {
+        //printa tudo
+        for(int i = 0; i < peso.size(); i++) {
+            cout << i + 1 << ": " << peso[i] << " ";
+        }
+        cout << endl;
+    }
+    else cout << peso[LAST - 1] << endl;
 
     if(SOL) solucao(path, peso);
 }

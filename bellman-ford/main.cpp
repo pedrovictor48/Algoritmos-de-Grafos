@@ -17,6 +17,7 @@ void flags_terminal(int argc, char ** argv) {
     HELP = SOL = false;
     IN = "grafo.txt";
     OUT = "";
+    LAST = -1;
 
     for(int i = 1; i < argc; i++) {
         //se o primeiro caractere é zero, ent é uma flag
@@ -130,7 +131,14 @@ int main(int argc, char ** argv) {
 
     bellman(START - 1, n, arestas, peso, path);
 
-    cout << peso[LAST - 1] << endl;
+    if(LAST == -1) {
+        //printa tudo
+        for(int i = 0; i < peso.size(); i++) {
+            cout << i + 1 << ": " << peso[i] << " ";
+        }
+        cout << endl;
+    }
+    else cout << peso[LAST - 1] << endl;
 
     if(SOL) solucao(path, peso);
 }
