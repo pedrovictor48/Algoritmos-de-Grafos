@@ -1,5 +1,14 @@
 # Algoritmos-de-Grafos
+
+* Aluno: Pedro Victor Alexandre Ferreira Santos  
+* Professor: Rian Gabriel Pinheiro
+* Teoria dos Grafos 2022.1 (Ciência Da Computação)
+
 Implementação de 4 algoritmos de grafos para a segunda avaliação da disciplina de Teoria dos Grafos.
+1. Dijkstra
+2. Bellman-Ford
+3. Kruskall (com DSU)
+4. Floyd-Warshall
 
 As flags do terminal estão implementadas, os arquivos dos grafos serão como a primeira sugestão da lista, 1-indexed:
 ```
@@ -17,4 +26,4 @@ Nos algoritmos de Dijkstra e Bellman-Ford, caso o parâmetro ```-l``` não seja 
 
 No algoritmo de Kruskal, o parâmetro ```-s``` printa as arestas da árvore em ordem crescente, caso não seja passado, somente o custo da árvore será printado.
 
-O algoritmo de Bellman-Ford não implementa tratamento para ciclos negativos, e todos os algoritmos lêem o arquivo de entrada como um gafo simples(não direcionados)
+O algoritmo de Bellman-Ford não implementa tratamento para ciclos negativos, e todos os algoritmos lêem o arquivo de entrada como um gafo simples (não direcionados)
