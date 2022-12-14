@@ -7,7 +7,7 @@
 Implementação de 4 algoritmos de grafos para a segunda avaliação da disciplina de Teoria dos Grafos.
 1. Dijkstra
 2. Bellman-Ford
-3. Kruskall (com DSU)
+3. Kruskal (com DSU)
 4. Floyd-Warshall
 
 As flags do terminal estão implementadas, os arquivos dos grafos serão como a primeira sugestão da lista, 1-indexed:
