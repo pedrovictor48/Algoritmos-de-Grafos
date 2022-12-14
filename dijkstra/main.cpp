@@ -143,7 +143,10 @@ int main(int argc, char ** argv) {
     if(LAST == -1) {
         //printa tudo
         for(int i = 0; i < peso.size(); i++) {
-            cout << i + 1 << ": " << peso[i] << " ";
+            cout << i + 1 << ":";
+            if(peso[i] < INF)
+                cout << peso[i] << " ";
+            else cout << "inalcançável ";
         }
         cout << endl;
     }

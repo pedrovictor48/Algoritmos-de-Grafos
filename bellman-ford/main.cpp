@@ -106,14 +106,17 @@ vector<Aresta> ler_arestas(string caminho_arquivo, int &n) {
     ifstream arquivo;
     arquivo.open(caminho_arquivo);
     int m; arquivo >> n >> m;
-    vector<Aresta> arestas(m);
+    vector<Aresta> arestas;
     
     for(int i = 0; i < m; i++) {
         int u, v, peso; arquivo >> u >> v >> peso;
-        u--, v--;
-        arestas[i].u = u;
-        arestas[i].v = v;
-        arestas[i].peso = peso;
+        Aresta aresta;
+        aresta.u = u - 1;
+        aresta.v = v - 1;
+        aresta.peso = peso;
+        arestas.push_back(aresta);
+        swap(aresta.u, aresta.v);
+        arestas.push_back(aresta);
     }
     return arestas;
 }
@@ -134,7 +137,10 @@ int main(int argc, char ** argv) {
     if(LAST == -1) {
         //printa tudo
         for(int i = 0; i < peso.size(); i++) {
-            cout << i + 1 << ": " << peso[i] << " ";
+            cout << i + 1 << ":";
+            if(peso[i] < INF)
+                cout << peso[i] << " ";
+            else cout << "inalcançável ";
         }
         cout << endl;
     }
