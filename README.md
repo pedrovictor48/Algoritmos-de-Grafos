@@ -10,6 +10,8 @@ Implementação de 4 algoritmos de grafos para a segunda avaliação da discipli
 3. Kruskal (com DSU)
 4. Floyd-Warshall
 
+Para executar, basta dar um ```make``` no diretório do algoritmo e em seguida executar o binário com o nome dele com as flags desejadas.
+
 As flags do terminal estão implementadas, os arquivos dos grafos serão como a primeira sugestão da lista, 1-indexed:
 ```
 6 8
