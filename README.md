@@ -28,4 +28,4 @@ Nos algoritmos de Dijkstra e Bellman-Ford, caso o parâmetro ```-l``` não seja 
 
 No algoritmo de Kruskal, o parâmetro ```-s``` printa as arestas da árvore em ordem crescente, caso não seja passado, somente o custo da árvore será printado.
 
-O algoritmo de Bellman-Ford não implementa tratamento para ciclos negativos, e todos os algoritmos lêem o arquivo de entrada como um gafo simples (não direcionados)
+O algoritmo de Bellman-Ford e o de Floyd-Warshall não implementam tratamento para casos com ciclos negativos, e todos os algoritmos lêem o arquivo de entrada como um gafo simples (não direcionados)
